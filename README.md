@@ -37,3 +37,6 @@
 4.) Instead of updating elements on each every search request update only whats necessary  (Using Virtual dom)
 
 5.) Finishing up Responsive UI Layout without a hassle using Bootstrap
+
+-------------
+❤️ JS
