@@ -51,8 +51,8 @@ body {
   width: 70px;
 }
 
-.card .info-wrapper .name:after {
-  content: ":";
+.card .info-wrapper .value:before {
+  content: ": ";
 }
 
 .card-wrapper-title {
