@@ -31,21 +31,19 @@ const renderDebts = (element, debts) => {
       { name: "balance", value: escapeSpaces(balance) },
       { name: "payment", value: escapeSpaces(payment) },
       { name: "bank", value: escapeSpaces(bank) },
-      { name: "description", value: escapeSpaces(description) },
       { name: "category", value: escapeSpaces(category) }
     ];
 
     element.insertAdjacentHTML(
       "beforeend",
       `<my-card
-          title="${user.firstName} ${user.lastName}"
-          img = ${user.picture}
+          title="${description}"
           list-info = ${JSON.stringify(listData)}
            />`
     );
   });
 
-  !users.length &&
+  !debts.length &&
     element.insertAdjacentHTML("beforeend", `<div>Empty Results</div>`);
 };
 

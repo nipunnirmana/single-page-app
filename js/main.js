@@ -41,3 +41,14 @@ document.querySelector("#user-search").addEventListener("input", event => {
   !inputString.trim().length && filteredData == userData;
   renderUser(userCardElm, filteredData);
 });
+
+document.querySelector("#debts-search").addEventListener("input", event => {
+  let inputString = event.target.value.toLocaleLowerCase();
+  let filteredData = [];
+  DebtsCardElm.innerHTML = "";
+  filteredData = debtsData.filter(debt =>
+    debt.description.toLocaleLowerCase().includes(inputString)
+  );
+  !inputString.trim().length && filteredData == debtsData;
+  renderDebts(DebtsCardElm, filteredData);
+});
