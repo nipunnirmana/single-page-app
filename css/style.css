@@ -1,5 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
 }
 
 .container {
@@ -72,11 +73,33 @@ body {
   margin-bottom: 50px;
 }
 
+.card-body {
+  margin-top: 260px;
+}
+
+.sticky-header {
+  position: fixed;
+  width: 50%;
+  background: #ffffff;
+  box-shadow: 10px 3px 10px 0px #bbbbbb;
+  border-left: 1px solid black;
+}
+
 @media only screen and (max-width: 1024px) {
   .container {
     display: block;
   }
   .card {
     height: auto;
+  }
+  .card-body {
+    margin-top: auto;
+  }
+
+  .sticky-header {
+    width: 100%;
+    position: initial;
+    box-shadow: none;
+    border: none;
   }
 }

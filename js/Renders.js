@@ -22,6 +22,8 @@ const renderUser = (element, users) => {
 
   !users.length &&
     element.insertAdjacentHTML("beforeend", `<div>Empty Results</div>`);
+
+  window.scrollTo(0, 0);
 };
 
 const renderDebts = (element, debts) => {
@@ -45,6 +47,8 @@ const renderDebts = (element, debts) => {
 
   !debts.length &&
     element.insertAdjacentHTML("beforeend", `<div>Empty Results</div>`);
+
+  window.scrollTo(0, 0);
 };
 
 export { renderUser, renderDebts };
