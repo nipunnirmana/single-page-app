@@ -1,5 +1,5 @@
 import { MyCard } from "./MyCard.js";
-import { renderUser } from "./Renders.js";
+import { renderUser, renderDebts } from "./Renders.js";
 
 let userData = [],
   debtsData = [];
@@ -17,6 +17,16 @@ fetch("./js/user.js")
   })
   .catch(function(error) {
     console.error("Error Fetching User Data", error);
+  });
+
+fetch("./js/debts.js")
+  .then(resp => resp.json())
+  .then(function(data) {
+    debtsData = data.debts;
+    renderDebts(DebtsCardElm, debtsData);
+  })
+  .catch(function(error) {
+    console.error("Error Fetching Debts Data", error);
   });
 
 document.querySelector("#user-search").addEventListener("input", event => {
