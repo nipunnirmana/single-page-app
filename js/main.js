@@ -58,12 +58,16 @@ class MyCard extends HTMLElement {
   }
 
   connectedCallback() {
+    const imgVal = this.getAttrVal("img");
+    const imgHtmlElement =
+      imgVal === "N/A"
+        ? ""
+        : `<div class="card-image"><img src="${imgVal}"></div>`;
     const htmlContent = `<div class="card user">
-    <div class="card-image"><img src="${this.getAttrVal("img")}"></div>
+    ${imgHtmlElement}
     <div class="card-details">
     <div class="card-title">${this.getAttrVal("title")}</div>
     ${this.getListData(this.getAttrVal("list-info"))}
-    
       </div>
     </div>
   </div>`;
@@ -75,23 +79,6 @@ class MyCard extends HTMLElement {
     // browser calls this method when the element is removed from the document
     // (can be called many times if an element is repeatedly added/removed)
   }
-
-  static get observedAttributes() {
-    return [
-      /* array of attribute names to monitor for changes */
-    ];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    // called when one of attributes listed above is modified
-  }
-
-  adoptedCallback() {
-    // called when the element is moved to a new document
-    // (happens in document.adoptNode, very rarely used)
-  }
-
-  // there can be other element methods and properties
 }
 
 customElements.define("my-card", MyCard);
