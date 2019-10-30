@@ -28,7 +28,7 @@ const renderUser = (element, users) => {
 
 const renderDebts = (element, debts) => {
   debts.forEach(debt => {
-    let { balance, payment, bank, description, category } = debt;
+    let { balance, payment, bank, description, category, escalate } = debt;
     const listData = [
       { name: "balance", value: escapeSpaces(balance) },
       { name: "payment", value: escapeSpaces(payment) },
@@ -39,6 +39,7 @@ const renderDebts = (element, debts) => {
     element.insertAdjacentHTML(
       "beforeend",
       `<my-card
+          ${!!escalate ? `escalate= '${JSON.stringify(escalate)}' ` : ``}
           title="${description}"
           list-info = ${JSON.stringify(listData)}
            />`

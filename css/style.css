@@ -77,6 +77,34 @@ body {
   margin-top: 260px;
 }
 
+.card-details {
+  width: 100%;
+}
+
+.escalate {
+  margin-top: 10px;
+  width: 30%;
+}
+
+.escalate-user {
+  text-align: center;
+  padding: 5px;
+}
+
+.escalate-title {
+  cursor: pointer;
+  font-size: 22px;
+  margin-bottom: 13px;
+  text-align: center;
+  border: 1px solid;
+  padding: 8px;
+}
+
+.escalate-title:hover {
+  color: #ffffff;
+  background: #333333;
+}
+
 .sticky-header {
   position: fixed;
   width: 50%;
@@ -133,5 +161,9 @@ body {
   .card-image {
     text-align: center;
     margin: auto;
+  }
+  .escalate {
+    margin-top: 25px;
+    width: 100%;
   }
 }

@@ -23,16 +23,36 @@ export class MyCard extends HTMLElement {
 
   connectedCallback() {
     const imgVal = this.getAttrVal("img");
+    let escalateVal = this.getAttrVal("escalate");
+
+    if (escalateVal !== "N/A") {
+      escalateVal = JSON.parse(escalateVal);
+    } else {
+      escalateVal = { staff: [] };
+    }
+
     const imgHtmlElement =
       imgVal === "N/A"
         ? ""
         : `<div class="card-image"><img src="${imgVal}"></div>`;
+
+    const escalateHtmlElement = !escalateVal.staff.length
+      ? ""
+      : `<div class='escalate'>
+        <div class='escalate-title'>Escalate</div>
+        ${escalateVal.staff
+          .map(staff => {
+            return `<div class='escalate-user'>${staff}</div>`;
+          })
+          .join("")} </div>`;
+
     const htmlContent = `<div class="card user">
       ${imgHtmlElement}
       <div class="card-details">
       <div class="card-title">${this.getAttrVal("title")}</div>
       ${this.getListData(this.getAttrVal("list-info"))}
         </div>
+        ${escalateHtmlElement}
       </div>
     </div>`;
 
