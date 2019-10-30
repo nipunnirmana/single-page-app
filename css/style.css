@@ -103,3 +103,35 @@ body {
     border: none;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .card {
+    display: block;
+  }
+
+  .card-title {
+    text-align: center;
+  }
+
+  .card .info-wrapper {
+    display: block;
+  }
+
+  .card .info-wrapper .name {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card .info-wrapper .value {
+    text-align: center;
+  }
+
+  .card .info-wrapper .value:before {
+    content: "";
+  }
+
+  .card-image {
+    text-align: center;
+    margin: auto;
+  }
+}
