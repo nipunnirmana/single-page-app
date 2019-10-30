@@ -30,7 +30,7 @@ fetch("./js/debts.js")
   });
 
 document.querySelector("#user-search").addEventListener("input", event => {
-  let inputString = event.target.value.toLocaleLowerCase();
+  let inputString = event.target.value.toLocaleLowerCase().trim();
   let filteredData = [];
   userCardElm.innerHTML = "";
   filteredData = userData.filter(user =>
@@ -43,7 +43,7 @@ document.querySelector("#user-search").addEventListener("input", event => {
 });
 
 document.querySelector("#debts-search").addEventListener("input", event => {
-  let inputString = event.target.value.toLocaleLowerCase();
+  let inputString = event.target.value.toLocaleLowerCase().trim();
   let filteredData = [];
   DebtsCardElm.innerHTML = "";
   filteredData = debtsData.filter(debt =>
