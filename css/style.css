@@ -4,18 +4,14 @@ body {
 
 .container {
   display: flex;
-  width: 80%;
   margin: auto;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 700px;
   margin: 10px;
-}
-
-.card {
+  height: 160px;
   display: flex;
   text-align: left;
 }
@@ -39,17 +35,20 @@ body {
 
 .card .info-wrapper {
   display: flex;
-  line-height: 3px;
 }
 
 .card .info-wrapper .name,
 .card .info-wrapper .value {
-  padding: 10px 5px;
+  padding: 3px 3px;
+}
+
+.card .info-wrapper .value {
+  word-break: break-word;
 }
 
 .card .info-wrapper .name {
   text-transform: capitalize;
-  width: 80px;
+  width: 70px;
 }
 
 .card .info-wrapper .name:after {
@@ -71,4 +70,13 @@ body {
   padding: 10px;
   width: 70%;
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    display: block;
+  }
+  .card {
+    height: auto;
+  }
 }
