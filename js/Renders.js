@@ -1,6 +1,7 @@
 import { escapeSpaces } from "./Helpers.js";
 
 const renderUser = (element, users) => {
+  // Render Passed user data as a list
   users.forEach(user => {
     let { age, phone, address, category, firstName, lastName, picture } = user;
     const listData = [
@@ -20,13 +21,18 @@ const renderUser = (element, users) => {
     );
   });
 
+  // Empty Results
+
   !users.length &&
     element.insertAdjacentHTML("beforeend", `<div>Empty Results</div>`);
+
+  // Scrolling back to top to avoid any sticky overlaps
 
   window.innerWidth >= 1024 && window.scrollTo(0, 0);
 };
 
 const renderDebts = (element, debts) => {
+  // Render Passed debts data as a list
   debts.forEach(debt => {
     let { balance, payment, bank, description, category, escalate } = debt;
     const listData = [
@@ -46,8 +52,12 @@ const renderDebts = (element, debts) => {
     );
   });
 
+  // Empty Results
+
   !debts.length &&
     element.insertAdjacentHTML("beforeend", `<div>Empty Results</div>`);
+
+  // Scrolling back to top to avoid any sticky overlaps
 
   window.innerWidth >= 1024 && window.scrollTo(0, 0);
 };

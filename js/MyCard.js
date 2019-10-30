@@ -6,10 +6,12 @@ export class MyCard extends HTMLElement {
   }
 
   getAttrVal(attr) {
+    // Retunrs Custom element attribute data
     return this.getAttribute(attr) || "N/A";
   }
 
   getListData(items) {
+    // Creating html elements based on available data
     return JSON.parse(items)
       .map(item => {
         let { name, value } = item;
@@ -22,6 +24,7 @@ export class MyCard extends HTMLElement {
   }
 
   connectedCallback() {
+    // Render Custom HTML Element
     const imgVal = this.getAttrVal("img");
     let escalateVal = this.getAttrVal("escalate");
 
@@ -31,10 +34,14 @@ export class MyCard extends HTMLElement {
       escalateVal = { staff: [] };
     }
 
+    // Conditionally render img tag only if available
+
     const imgHtmlElement =
       imgVal === "N/A"
         ? ""
         : `<div class="card-image"><img src="${imgVal}"></div>`;
+
+    // Conditionally render Escalate data only if available
 
     const escalateHtmlElement = !escalateVal.staff.length
       ? ""
@@ -57,10 +64,5 @@ export class MyCard extends HTMLElement {
     </div>`;
 
     this.innerHTML = htmlContent;
-  }
-
-  disconnectedCallback() {
-    // browser calls this method when the element is removed from the document
-    // (can be called many times if an element is repeatedly added/removed)
   }
 }
