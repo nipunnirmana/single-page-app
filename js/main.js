@@ -1,15 +1,33 @@
 import { MyCard } from "./MyCard.js";
 import { renderUser } from "./Renders.js";
 
+let userData = [],
+  debtsData = [];
+
+const userCardElm = document.querySelector("#users");
+const DebtsCardElm = document.querySelector("#debts");
+
+customElements.define("my-card", MyCard);
+
 fetch("./js/user.js")
   .then(resp => resp.json())
   .then(function(data) {
-    data.users.forEach(user => {
-      renderUser("#users", user);
-    });
+    userData = data.users;
+    renderUser(userCardElm, userData);
   })
   .catch(function(error) {
     console.error("Error Fetching User Data", error);
   });
 
-customElements.define("my-card", MyCard);
+document.querySelector("#user-search").addEventListener("input", event => {
+  let inputString = event.target.value.toLocaleLowerCase();
+  let filteredData = [];
+  userCardElm.innerHTML = "";
+  filteredData = userData.filter(user =>
+    `${user.firstName.toLocaleLowerCase()} ${user.lastName.toLocaleLowerCase()}`
+      .toLocaleLowerCase()
+      .includes(inputString)
+  );
+  !inputString.trim().length && filteredData == userData;
+  renderUser(userCardElm, filteredData);
+});
