@@ -28,11 +28,8 @@ export class MyCard extends HTMLElement {
     const imgVal = this.getAttrVal("img");
     let escalateVal = this.getAttrVal("escalate");
 
-    if (escalateVal !== "N/A") {
-      escalateVal = JSON.parse(escalateVal);
-    } else {
-      escalateVal = { staff: [] };
-    }
+    escalateVal =
+      escalateVal !== "N/A" ? JSON.parse(escalateVal) : { staff: [] };
 
     // Conditionally render img tag only if available
 
@@ -53,7 +50,7 @@ export class MyCard extends HTMLElement {
           })
           .join("")} </div>`;
 
-    const htmlContent = `<div class="card user">
+    const htmlContent = `<div class="card">
       ${imgHtmlElement}
       <div class="card-details">
       <div class="card-title">${this.getAttrVal("title")}</div>
